@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <title>登录后</title>
+    <link rel="stylesheet" type="text/css" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.css}" />
+</head>
+<body>
+    <form method="post" th:action="@{getUsers}">
+        <button type="submit">getUsers</button>
+    </form>
+    <script type="text/javascript" th:src="@{webjars/jquery/3.0.0/jquery.js}" />
+    <script type="text/javascript" th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+</body>
+</html>

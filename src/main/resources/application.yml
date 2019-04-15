@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+#mybatis配置
+mybatis:
+  mapper-locations: classpath:mapping/*.xml #这里的classpath冒号后面不能有空格！
+  type-aliases-package: com.springboot.sample.entity
+  config-location: classpath:mybatis-config.xml
+  #日志配置
+logging:
+  config: classpath:logback-spring.xml
