@@ -23,4 +23,11 @@ public interface UserMapper {
      * @return
      */
     List<User> selectAllUsers();
+
+    /**
+     * 根据条件查询用户列表
+     * @param user
+     * @return
+     */
+    List<User> selectByCondition(User user);
 }

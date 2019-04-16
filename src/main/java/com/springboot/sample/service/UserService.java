@@ -52,4 +52,25 @@ public class UserService {
         System.out.println(page.getTotal());
         return list;
     }
+
+    /**
+     * 新增一个用户
+     * @param user
+     * @return
+     */
+    public User saveUser(User user){
+        int i = userMapper.insert(user);
+        System.out.println("saveUser"+i);
+        return user;
+    }
+
+    /**
+     * 根据条件查询用户列表
+     * @param user
+     * @return
+     */
+    public List<User> selectByCondition(User user){
+        return userMapper.selectByCondition(user);
+    }
+
 }
