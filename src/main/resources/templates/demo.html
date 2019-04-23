@@ -22,9 +22,69 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}" />
 </head>
 <body>
+<!--默认情况下容器container不可嵌套-->
 <div class="container">
 <!--    响应式图片，center-block水平居中-->
-    <img class="img-responsive center-block" alt="响应式图片" src="/img/xj.jpg" />
+    <img class="img-responsive center-block" alt="响应式图片" src="/img/xj.jpg" width="30%" />
+<!--    网格-->
+    <div class="row">
+<!--        超小设备-手机等-->
+<!--        <div class="col-xl-*"></div>-->
+<!--        平板电脑-->
+<!--        <div class="col-sm-*"></div>-->
+<!--        中型电脑-->
+<!--        <div class="col-md-*"></div>-->
+<!--        大型电脑-->
+<!--        <div class="col-lg-*"></div>-->
+<!--        设置偏移 col-*-offset-*-->
+    </div>
+<!--    副标题-->
+    <h1>xx <small>xx</small></h1>
+<!--    文本相关类-->
+    <p class="text-left">向左对齐文本</p>
+    <p class="text-center">居中对齐文本</p>
+    <p class="text-right">向右对齐文本</p>
+    <p class="text-muted">本行内容是减弱的</p>
+    <p class="text-primary">本行内容带有一个 primary class</p>
+    <p class="text-success">本行内容带有一个 success class</p>
+    <p class="text-info">本行内容带有一个 info class</p>
+    <p class="text-warning">本行内容带有一个 warning class</p>
+    <p class="text-danger">本行内容带有一个 danger class</p>
+<!--    引用-->
+    <blockquote></blockquote>
+<!--    内联代码  代码里<和>需要使用unicode变体-->
+    <code>&lt;header&gt;</code>
+<!--    独立代码-->
+    <pre>
+    &lt;article&gt;
+        &lt;h1&gt;Article Heading&lt;/h1&gt;
+    &lt;/article&gt;
+    </pre>
+    <!--基本表格如下，条纹样式表格class="table table-striped"，边框样式表格class="table table-bordered",
+    悬停样式表格class="table table-hover"，紧凑样式表格class="table table-condensed"，
+    设置表格/行/单元格背景颜色class="active",class="success",class="warining",class="danger"
+    响应式表格，在表格外面加上<div class="table-responsive"></div>-->
+    <div class="table-responsive">
+        <table class="table">
+            <caption>基本的表格布局</caption>
+            <thead>
+            <tr>
+                <th>名称</th>
+                <th>城市</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+            </tr>
+            <tr>
+                <td>Sachin</td>
+                <td>Mumbai</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <!--thymeleaf方式引入bootstrap脚本-->
 <script type="text/javascript" th:src="@{/webjars/jquery/3.0.0/jquery.js}" ></script>
