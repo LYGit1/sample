@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<!--使用thymeleaf语法-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap demo</title>
+<!--    自适应屏幕-->
+<!--    maximum-scale=1.0 , user-scalable=no 禁用缩放-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" >
+<!--    在使用IE浏览器时，使用最新版本-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+<!--    thymeleaf方式引入bootstrap样式-->
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.css}" />
+</head>
+<body>
+<div class="container">
+<!--    响应式图片，center-block水平居中-->
+    <img class="img-responsive center-block" alt="响应式图片" src="/img/xj.jpg" />
+</div>
+<!--thymeleaf方式引入bootstrap脚本-->
+<script type="text/javascript" th:src="@{/webjars/jquery/3.0.0/jquery.js}" ></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.js}" ></script>
+</body>
+</html>
