@@ -3,6 +3,7 @@ package com.springboot.sample.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.springboot.sample.entity.User;
+import com.springboot.sample.exception.DaoRuntimeException;
 import com.springboot.sample.mapper.UserMapper;
 import com.springboot.sample.repository.UserJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,24 +44,30 @@ public class UserService {
     }
 
     /**
-     * mybatis pagehelper分页查询
+     * @Description mybatis pagehelper分页查询
      * @return
      */
     public List<User> getUserPage(){
         Page<User> page = PageHelper.startPage(1,1,true);
         List<User> list = userMapper.selectAllUsers();
-        System.out.println(page.getTotal());
+        page.getTotal();
         return list;
     }
 
     /**
-     * 新增一个用户
+     * @Description 新增一个用户
      * @param user
      * @return
      */
-    public User saveUser(User user){
-        int i = userMapper.insert(user);
-        System.out.println("saveUser"+i);
+    public User saveUser(User user) throws DaoRuntimeException {
+        try {
+            int i = userMapper.insert(user);
+            if(1 != i){
+                throw new DaoRuntimeException("新增用户操作异常");
+            }
+        }catch (Exception e){
+            throw new DaoRuntimeException(e.getLocalizedMessage());
+        }
         return user;
     }
 
