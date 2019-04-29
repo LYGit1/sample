@@ -6,10 +6,10 @@ package com.springboot.sample.service;
 public class UserBase {
 
     public void testCglib1(){
-
+        //do nothing
     }
 
     public void testCglib2(){
-
+        //do nothing
     }
 }

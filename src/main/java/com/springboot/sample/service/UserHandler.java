@@ -30,7 +30,8 @@ public class UserHandler implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        LOG.info("JDK proxy:"+method.getName());
+        String info = String.format("JDK proxy:%s", method.getName());
+        LOG.info(info);
         return method.invoke(userImpl,args);
     }
 }
