@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * rest接口
+ * @Description rest接口
+ * @Author leiyi
  */
 @RestController
 public class RestUserController {
