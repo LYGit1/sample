@@ -17,7 +17,9 @@ public class ServiceAspectConfig {
 
     //切点定义
     @Pointcut("within(com.springboot.sample.service.*Service)")
-    public void servicePointCut(){}
+    public void servicePointCut(){
+        //the define of pointcut
+    }
 
     //advice处理
     @Around("servicePointCut()")

@@ -1,6 +1,6 @@
 package com.springboot.sample.common;
 
-import com.springboot.sample.util.MOUtil;
+import com.springboot.sample.util.MapObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.LinkedList;
@@ -23,7 +23,7 @@ public class BaseJdbc {
         List<Map<String,Object>> mapList = jdbcTemplate.queryForList(sql);
         List list = new LinkedList();
         for(Map<String,Object> map:mapList){
-            list.add(MOUtil.MapToObject(map, beanClass));
+            list.add(MapObjectUtil.MapToObject(map, beanClass));
         }
         return list;
     }
