@@ -1,7 +1,10 @@
 #数据库配置
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/lytest
+    #8.0以上版本的MySQL设置
+#    url: jdbc:mysql://localhost:3306/lytest
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #8.0以下版本的MySQL设置
+    url: jdbc:mysql://localhost:3306/lytest?useUnicode=true&characterEncoding=utf8
     username: lyJbUser
     password: 12345678
-    driver-class-name: com.mysql.cj.jdbc.Driver

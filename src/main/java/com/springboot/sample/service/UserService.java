@@ -66,14 +66,10 @@ public class UserService {
      * @param user
      * @return
      */
-    public User saveUser(User user) throws DaoRuntimeException {
-        try {
-            int i = userMapper.insert(user);
-            if(1 != i){
-                throw new DaoRuntimeException("新增用户操作异常");
-            }
-        }catch (Exception e){
-            throw new DaoRuntimeException(e.getLocalizedMessage());
+    public User saveUser(User user){
+        int i = userMapper.insert(user);
+        if(1 != i){
+            throw new DaoRuntimeException("新增用户失败！");
         }
         return user;
     }
