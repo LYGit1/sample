@@ -13,7 +13,7 @@ public class BaseFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        //Do nothing
     }
 
     @Override
@@ -23,15 +23,17 @@ public class BaseFilter implements Filter {
         long interval = System.currentTimeMillis() - starttime;
         StringBuffer sb = new StringBuffer("[");
         sb.append(((HttpServletRequest)servletRequest).getRequestURL());
-        if(!StringUtils.isEmpty(((HttpServletRequest)servletRequest).getQueryString()))
+        if(!StringUtils.isEmpty(((HttpServletRequest)servletRequest).getQueryString())) {
             sb.append("?").append(((HttpServletRequest)servletRequest).getQueryString());
+        }
         sb.append("] execute time = ");
         sb.append(interval);
-        LOG.info(sb.toString());
+        String info = sb.toString();
+        LOG.info(info);
     }
 
     @Override
     public void destroy() {
-
+        //do nothing
     }
 }
