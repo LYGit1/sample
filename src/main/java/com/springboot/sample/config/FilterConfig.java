@@ -16,7 +16,7 @@ public class FilterConfig {
         filterRegistrationBean.setOrder(1);
         filterRegistrationBean.setName("baseFilter");
         filterRegistrationBean.setFilter(new BaseFilter());
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("/*");
         filterRegistrationBean.setUrlPatterns(list);
         return filterRegistrationBean;
