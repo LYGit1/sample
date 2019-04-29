@@ -9,6 +9,7 @@ import com.springboot.sample.repository.UserJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,7 +25,13 @@ public class UserService {
      * @return
      */
     public List<User> getUsers(){
-        return userJdbc.getUsers();
+        List<User> list = new ArrayList<>();
+        try{
+            list = userJdbc.getUsers();
+        }catch (Exception e){
+            throw new DaoRuntimeException(e.getLocalizedMessage());
+        }
+        return list;
     }
 
     /**
