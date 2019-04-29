@@ -11,11 +11,12 @@ import java.lang.reflect.Method;
  * cglib动态代理，代理逻辑处理类
  */
 public class UserInterceptor implements MethodInterceptor {
-    private static Logger LOG = LoggerFactory.getLogger(UserInterceptor.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserInterceptor.class);
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        LOG.info("cglib:"+method.getName());
+        String info = String.format("cglib: %s",method.getName());
+        LOG.info(info);
         return methodProxy.invokeSuper(o, objects);
     }
 }
