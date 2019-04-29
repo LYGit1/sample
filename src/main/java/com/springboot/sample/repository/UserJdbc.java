@@ -13,15 +13,15 @@ public class UserJdbc extends BaseJdbc {
      * 获取所有用户列表
      * @return
      */
-    public List<User> getUsers(){
+    public List<User> getUsers() throws InstantiationException, IllegalAccessException {
         String sql = "select * from user";
         List<User> list = null;
         try {
             list = queryForList(sql, User.class);
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            throw new InstantiationException(e.getLocalizedMessage());
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            throw new IllegalAccessException(e.getLocalizedMessage());
         }
         return list;
     }
