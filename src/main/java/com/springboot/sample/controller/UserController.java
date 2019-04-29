@@ -6,24 +6,32 @@ import com.springboot.sample.service.impl.UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Proxy;
 import java.util.List;
 
+/**
+ * @Author leiyi
+ */
 @Controller
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @GetMapping(value = "/user/login")
+    public String loginGet() {
+        return "main";
+    }
     /**
      * 利用thymeleaf模板引擎加载main主页
      * @return
      */
-    @RequestMapping("/user/login")
-    public String login() {
+    @PostMapping(value = "/user/login")
+    public String loginPost() {
         return "main";
     }
 
@@ -31,9 +39,15 @@ public class UserController {
      * 利用jdbc获取所有用户
      * @return
      */
-    @RequestMapping("/user/getUsers")
+    @GetMapping("/user/getUsers")
     @ResponseBody
-    public List<User> getUsers() {
+    public List<User> getUsersGet() {
+        return userService.getUsers();
+    }
+
+    @PostMapping("/user/getUsers")
+    @ResponseBody
+    public List<User> getUsersPost() {
         return userService.getUsers();
     }
 
@@ -41,9 +55,15 @@ public class UserController {
      * 利用mybatis获取所有用户
      * @return
      */
-    @RequestMapping("user/selectAllUsers")
+    @GetMapping("user/selectAllUsers")
     @ResponseBody
-    public List<User> selectAllUsers() {
+    public List<User> selectAllUsersGet() {
+        return userService.selectAllUsers();
+    }
+
+    @PostMapping("user/selectAllUsers")
+    @ResponseBody
+    public List<User> selectAllUsersPost() {
         return userService.selectAllUsers();
     }
 
@@ -52,7 +72,7 @@ public class UserController {
      * @param id
      * @return
      */
-    @RequestMapping("/user/getUserById")
+    @PostMapping("/user/getUserById")
     @ResponseBody
     public User getUserById(int id) {
         return userService.getUserById(id);
@@ -62,16 +82,22 @@ public class UserController {
      * 利用mybatis pagehelper
      * @return
      */
-    @RequestMapping("user/getUserPage")
+    @GetMapping("user/getUserPage")
     @ResponseBody
-    public List<User> getUserPage() {
+    public List<User> getUserPageGet() {
+        return userService.getUserPage();
+    }
+
+    @PostMapping("user/getUserPage")
+    @ResponseBody
+    public List<User> getUserPagePost() {
         return userService.getUserPage();
     }
 
     /**
      * 该方法利用JDK原生动态代理，在接口方法执行前先打印日志（打印接口方法名）
      */
-    @RequestMapping("user/testProxy")
+    @GetMapping("user/testProxy")
     @ResponseBody
     public String testProxy() {
         //通过Proxy创建接口对象
@@ -87,7 +113,7 @@ public class UserController {
      * 该方法利用cglib动态代理，在父类方法执行前先打印日志（打印调用方法名）
      * @return
      */
-    @RequestMapping("user/testCglib")
+    @GetMapping("user/testCglib")
     @ResponseBody
     public String testCglib(){
         Enhancer enhancer = new Enhancer();
