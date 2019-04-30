@@ -23,7 +23,7 @@ public class BaseJdbc {
         List<Map<String,Object>> mapList = jdbcTemplate.queryForList(sql);
         List list = new LinkedList();
         for(Map<String,Object> map:mapList){
-            list.add(MapObjectUtil.MapToObject(map, beanClass));
+            list.add(MapObjectUtil.mapToObject(map, beanClass));
         }
         return list;
     }
